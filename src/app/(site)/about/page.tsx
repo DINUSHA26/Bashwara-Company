@@ -22,15 +22,6 @@ import {
   Eye
 } from 'lucide-react';
 
-interface SubSectionCard {
-  title: string;
-  desc: string;
-  href: string;
-  icon: React.ReactNode;
-  colorClass: string;
-  bgGlow: string;
-}
-
 interface FootprintPin {
   id: string;
   city: string;
@@ -43,41 +34,6 @@ interface FootprintPin {
 export default function AboutPage() {
   const [hoveredPin, setHoveredPin] = useState<FootprintPin | null>(null);
 
-  const subSections: SubSectionCard[] = [
-    {
-      title: 'Vision & Mission',
-      desc: 'Discover our core purpose, vision for South Asia, and corporate values.',
-      href: '/about/vision-mission',
-      icon: <Compass className="w-6 h-6" />,
-      colorClass: 'text-amber-500 border-amber-500/20 bg-amber-500/5',
-      bgGlow: 'group-hover:shadow-amber-500/10 group-hover:border-amber-500/40',
-    },
-    {
-      title: 'Leadership Profile',
-      desc: 'Meet the executive board driving our conglomerate trajectory.',
-      href: '/about/leadership',
-      icon: <Users className="w-6 h-6" />,
-      colorClass: 'text-sky-500 border-sky-500/20 bg-sky-500/5',
-      bgGlow: 'group-hover:shadow-sky-500/10 group-hover:border-sky-500/40',
-    },
-    {
-      title: 'Our History',
-      desc: 'Explore our milestones and heritage established since 2008.',
-      href: '/about/history',
-      icon: <History className="w-6 h-6" />,
-      colorClass: 'text-teal-500 border-teal-500/20 bg-teal-500/5',
-      bgGlow: 'group-hover:shadow-teal-500/10 group-hover:border-teal-500/40',
-    },
-    {
-      title: 'Our Partners',
-      desc: 'Explore our active strategic alliances across China, Japan, and globally.',
-      href: '/about/partners',
-      icon: <Handshake className="w-6 h-6" />,
-      colorClass: 'text-emerald-500 border-emerald-500/20 bg-emerald-500/5',
-      bgGlow: 'group-hover:shadow-emerald-500/10 group-hover:border-emerald-500/40',
-    },
-  ];
-
   const footprintPins: FootprintPin[] = [
     { id: 'colombo', city: 'Colombo (HQ)', country: 'Sri Lanka', details: 'Conglomerate Headquarters, Agri-Spice Processing, Gem Sourcing & Corporate Center', x: 71.5, y: 69.5 },
     { id: 'mumbai', city: 'Mumbai Hub', country: 'India', details: 'South Asian Logistics Coordination, Agricultural Sourcing & Trade Operations', x: 68.0, y: 62.0 },
@@ -89,27 +45,34 @@ export default function AboutPage() {
     { id: 'singapore', city: 'Singapore Center', country: 'Singapore', details: 'Southeast Asian Shipping Control, Treasury & Regional Trade Headquarters', x: 75.5, y: 69.0 },
   ];
 
-  const visualHighlights = [
+  const visualPillars = [
     {
-      title: 'Leadership',
-      desc: 'Meet the visionaries across the Bashwara Executive Board steering our global conglomerate trajectory.',
+      title: 'Vision & Mission',
+      desc: 'Discover our core purpose, vision for South Asia, and corporate values.',
+      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600&auto=format&fit=crop',
+      href: '/about/vision-mission',
+      action: 'View Purpose'
+    },
+    {
+      title: 'Leadership Profile',
+      desc: 'Meet the executive board driving our conglomerate trajectory.',
       image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop',
       href: '/about/leadership',
       action: 'Meet Our Directors'
     },
     {
-      title: 'Our Awards',
-      desc: 'Celebrating a legacy of sustainable impact, export compliance, and corporate business excellence.',
-      image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=600&auto=format&fit=crop',
-      href: '/about/partners',
-      action: 'View Alliances'
-    },
-    {
-      title: 'Our Heritage',
-      desc: 'Relive the milestones and rich heritage established since our inception in 2008.',
+      title: 'Our History',
+      desc: 'Explore our milestones and heritage established since 2008.',
       image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop',
       href: '/about/history',
       action: 'Explore Timeline'
+    },
+    {
+      title: 'Our Partners',
+      desc: 'Explore our active strategic alliances across China, Japan, and globally.',
+      image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=600&auto=format&fit=crop',
+      href: '/about/partners',
+      action: 'View Alliances'
     }
   ];
 
@@ -208,7 +171,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. Interactive Navigation Cards (Subpage Links) */}
+      {/* 3. Interactive Navigation Cards (Visual Subpage Links) */}
       <section className="py-20 bg-slate-50 border-t border-slate-200/50">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
@@ -220,37 +183,46 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {subSections.map((sec, i) => (
+            {visualPillars.map((hl, idx) => (
               <motion.div
-                key={sec.title}
+                key={hl.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group"
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="bg-white rounded-3xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group h-full"
               >
-                <Link href={sec.href}>
-                  <div className={`h-full bg-white p-8 rounded-2xl border border-slate-200/60 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col justify-between ${sec.bgGlow}`}>
-                    <div className="space-y-6">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center border ${sec.colorClass}`}>
-                        {sec.icon}
-                      </div>
-                      <div className="space-y-3">
-                        <h3 className="text-xl font-bold text-brand-navy tracking-tight group-hover:text-brand-ocean transition-colors">
-                          {sec.title}
-                        </h3>
-                        <p className="text-slate-500 text-sm leading-relaxed font-light">
-                          {sec.desc}
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="mt-8 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400 group-hover:text-gold transition-colors">
-                      Learn More 
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
+                {/* Visual Image Container */}
+                <div className="h-[200px] overflow-hidden relative">
+                  <motion.img 
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.5 }}
+                    src={hl.image} 
+                    alt={hl.title}
+                    className="w-full h-full object-cover transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+
+                <div className="p-6 flex flex-col justify-between flex-grow">
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-serif font-bold text-brand-navy tracking-tight group-hover:text-brand-ocean transition-colors">
+                      {hl.title}
+                    </h3>
+                    <p className="text-slate-500 text-xs leading-relaxed font-light line-clamp-3">
+                      {hl.desc}
+                    </p>
                   </div>
-                </Link>
+
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center">
+                    <Link 
+                      href={hl.href} 
+                      className="w-full text-center bg-slate-50 border border-slate-200/60 hover:bg-brand-navy hover:text-white hover:border-brand-navy py-2.5 px-4 rounded-xl text-xs font-semibold tracking-wide transition-all duration-300 block"
+                    >
+                      {hl.action}
+                    </Link>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -469,63 +441,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 6. Improved About Us Visual Section (Leadership, Awards, Heritage) */}
-      <section className="py-24 bg-white border-b border-slate-100">
-        <div className="container mx-auto px-4 max-w-6xl">
-          
-          <div className="text-center max-w-2xl mx-auto mb-20 space-y-4">
-            <span className="text-gold font-serif text-sm tracking-widest uppercase block">Conglomerate Trajectory</span>
-            <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-navy">Milestones & Leadership</h2>
-            <p className="text-slate-500 font-light text-sm md:text-base">
-              Dive deep into our corporate milestones, awards, and early beginnings establishing our solid governance foundation.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {visualHighlights.map((hl, idx) => (
-              <motion.div
-                key={hl.title}
-                initial={{ opacity: 0, y: 35 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="bg-white rounded-3xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group h-full"
-              >
-                {/* Visual Image container with exact Aspect Ratio */}
-                <div className="h-[280px] overflow-hidden relative">
-                  <motion.img 
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.5 }}
-                    src={hl.image} 
-                    alt={hl.title}
-                    className="w-full h-full object-cover transition-transform duration-500"
-                  />
-                  {/* Subtle Elegant Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                </div>
-
-                <div className="p-8 flex flex-col justify-between flex-1">
-                  <div className="space-y-4">
-                    <h3 className="text-2xl font-serif font-bold text-brand-navy tracking-tight group-hover:text-brand-ocean transition-colors">
-                      {hl.title}
-                    </h3>
-                    <p className="text-slate-500 text-sm leading-relaxed font-light">
-                      {hl.desc}
-                    </p>
-                  </div>
-
-                  <div className="mt-8 pt-6 border-t border-slate-100 flex items-center">
-                    <Link href={hl.href} className="w-full text-center bg-slate-50 border border-slate-200/60 hover:bg-brand-navy hover:text-white hover:border-brand-navy py-3 px-6 rounded-xl text-sm font-semibold tracking-wide transition-all duration-300 block">
-                      {hl.action}
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-        </div>
-      </section>
 
     </div>
   );
