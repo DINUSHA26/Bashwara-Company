@@ -28,7 +28,7 @@ export function proxy(request: NextRequest) {
   // Only apply rate limiting to POST API routes
   if (request.nextUrl.pathname.startsWith('/api/') && request.method === 'POST') {
     // In production on Vercel, x-real-ip or x-forwarded-for contains the IP
-    const ip = request.headers.get('x-forwarded-for') || request.ip || '127.0.0.1';
+    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || (request as any).ip || '127.0.0.1';
     
     const { isRateLimited, limit, remaining } = applyRateLimit(ip);
 

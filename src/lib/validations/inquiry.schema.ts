@@ -2,7 +2,7 @@ import * as z from 'zod';
 
 export const inquirySchema = z.object({
   sector: z.enum(['Gems', 'SpareParts', 'Motors', 'Plastics', 'Spices', 'ChinaAgency'], {
-    required_error: 'Please select a sector.',
+    message: 'Please select a sector.',
   }),
   senderName: z.string().min(2, {
     message: 'Name must be at least 2 characters.',
@@ -14,7 +14,7 @@ export const inquirySchema = z.object({
   message: z.string().min(10, {
     message: 'Message must be at least 10 characters.',
   }),
-  metaData: z.record(z.string()).optional(),
+  metaData: z.record(z.string(), z.string()).optional(),
   recaptchaToken: z.string().min(1, {
     message: 'reCAPTCHA verification failed.',
   }),
