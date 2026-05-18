@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { SubpageHero } from '@/components/layout/SubpageHero';
 import { ArrowRight, Gem, Settings, Factory, Box, Leaf, Globe } from 'lucide-react';
 
 const SECTORS_LIST = [
@@ -52,38 +53,16 @@ const SECTORS_LIST = [
 
 export default function SectorsListingPage() {
   return (
-    <div className="pt-24 pb-24 bg-gradient-to-b from-slate-50 to-white min-h-screen">
+    <div className="bg-white min-h-screen overflow-hidden text-brand-navy">
       
-      {/* Premium Collage/Emphasize Sector Hero Banner */}
-      <section className="relative h-[45vh] min-h-[380px] w-full flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2000&auto=format&fit=crop"
-            alt="Diverse industrial conglomerate collage representing all six sectors"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/95 via-brand-navy/80 to-brand-navy/70" />
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-gold font-bold tracking-widest uppercase mb-4 block"
-          >
-            Our Scope
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6"
-          >
-            Conglomerate Sectors
-          </motion.h1>
-          <div className="w-20 h-1 bg-gold mx-auto" />
-        </div>
-      </section>
+      {/* Premium collage/emphasize sector hero banner */}
+      <SubpageHero 
+        tag="Our Scope"
+        title="Conglomerate Sectors"
+        description="Spanning six highly specialized and integrated business sectors driving sustainable value creation in South Asia and global markets."
+        image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2000&auto=format&fit=crop"
+        alt="Diverse industrial conglomerate collage representing all six sectors"
+      />
 
       {/* Intro Block */}
       <div className="container mx-auto px-4 max-w-4xl text-center mt-20 mb-20">

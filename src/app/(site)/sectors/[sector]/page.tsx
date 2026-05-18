@@ -1,9 +1,8 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SectorHero } from '@/components/sectors/SectorHero';
-
-// Note: In a full app, each sector's specific content would be broken into separate components.
-// Here we scaffold the layout handler for the dynamic route.
+import { GemsContent } from '@/components/sectors/gems/GemsContent';
+import { SparePartsContent } from '@/components/sectors/spare-parts/SparePartsContent';
 
 const SECTOR_DATA: Record<string, any> = {
   'gem-jewellery': {
@@ -49,9 +48,6 @@ export async function generateMetadata({ params }: { params: Promise<{ sector: s
   };
 }
 
-import { GemsContent } from '@/components/sectors/gems/GemsContent';
-import { SparePartsContent } from '@/components/sectors/spare-parts/SparePartsContent';
-
 export default async function SectorPage({ params }: { params: Promise<{ sector: string }> }) {
   const resolvedParams = await params;
   const data = SECTOR_DATA[resolvedParams.sector];
@@ -61,26 +57,30 @@ export default async function SectorPage({ params }: { params: Promise<{ sector:
   }
 
   return (
-    <div className="bg-surface-light min-h-screen pb-24">
+    <div className="bg-white min-h-screen overflow-hidden text-brand-navy">
+      {/* Full-Screen Sector Detail Hero matching Homepage style */}
       <SectorHero 
         title={data.title}
         image={data.image}
         breadcrumb={data.title}
       />
       
-      <div className="container mx-auto px-4 mt-12">
-        {resolvedParams.sector === 'gem-jewellery' ? (
-          <GemsContent />
-        ) : resolvedParams.sector === 'spare-parts' ? (
-          <SparePartsContent />
-        ) : (
-          <div className="flex-1 bg-white p-8 rounded-2xl shadow-sm border border-surface-border min-h-[600px] flex items-center justify-center">
-            <p className="text-xl text-brand-navy/60 font-medium">
-              {data.title} Content Module Loading...
-            </p>
-          </div>
-        )}
-      </div>
+      {/* Dynamic Sector Content Module with Slide-Up Transition */}
+      <section className="py-20 bg-slate-50 relative z-10 -mt-10 rounded-t-[40px] shadow-2xl border-t border-slate-200/50">
+        <div className="container mx-auto px-4">
+          {resolvedParams.sector === 'gem-jewellery' ? (
+            <GemsContent />
+          ) : resolvedParams.sector === 'spare-parts' ? (
+            <SparePartsContent />
+          ) : (
+            <div className="flex-1 bg-white p-8 rounded-2xl shadow-sm border border-slate-200 min-h-[600px] flex items-center justify-center">
+              <p className="text-xl text-brand-navy/60 font-medium">
+                {data.title} Content Module Loading...
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
     </div>
   );
 }

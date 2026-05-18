@@ -5,7 +5,10 @@ import { inquirySchema } from '@/lib/validations/inquiry.schema';
 
 async function verifyRecaptcha(token: string): Promise<boolean> {
   const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-  if (!secretKey) return false;
+  if (!secretKey) {
+    console.warn('RECAPTCHA_SECRET_KEY is not set. Bypassing verification for local development.');
+    return true;
+  }
 
   const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`;
   try {

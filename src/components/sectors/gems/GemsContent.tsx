@@ -30,13 +30,19 @@ export function GemsContent() {
             <h2 className="text-4xl font-serif font-bold text-brand-navy mb-8">Ethical Mining Operations</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { title: 'Extraction', img: 'bashwara/sectors/gems/extraction' },
-                { title: 'Processing', img: 'bashwara/sectors/gems/processing' },
-                { title: 'Ecological Care', img: 'bashwara/sectors/gems/ecology' }
+                { title: 'Extraction', img: '/images/gems/extraction.png' },
+                { title: 'Processing', img: '/images/gems/processing.png' },
+                { title: 'Ecological Care', img: '/images/gems/ecology.png' }
               ].map((step, idx) => (
-                <div key={idx} className="group relative h-64 rounded-xl overflow-hidden shadow-md">
-                  <div className="absolute inset-0 bg-brand-navy/20 group-hover:bg-transparent transition-colors z-10" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/20 to-transparent z-10" />
+                <div key={idx} className="group relative h-64 rounded-xl overflow-hidden shadow-md bg-slate-900">
+                  {/* Background Image */}
+                  <img 
+                    src={step.img} 
+                    alt={step.title} 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  {/* Clean Dark Gradient Overlay (No Blue Layer) */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
                   <h3 className="absolute bottom-4 left-4 z-20 text-white font-bold text-xl">{step.title}</h3>
                 </div>
               ))}
@@ -53,16 +59,23 @@ export function GemsContent() {
             {/* CSS Masonry Layout */}
             <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
               {[
-                { name: 'Blue Sapphire', origin: 'Ratnapura', grade: 'AAA', h: 'h-96' },
-                { name: 'Padparadscha', origin: 'Sri Lanka', grade: 'Collector', h: 'h-64' },
-                { name: 'Yellow Sapphire', origin: 'Pelmadulla', grade: 'AA', h: 'h-80' },
-                { name: 'Ruby', origin: 'Madagascar', grade: 'AAA', h: 'h-72' },
-                { name: 'Star Sapphire', origin: 'Ratnapura', grade: 'Rare', h: 'h-96' },
-                { name: 'Tsavorite', origin: 'Tanzania', grade: 'AA', h: 'h-64' },
+                { name: 'Blue Sapphire', origin: 'Ratnapura', grade: 'AAA', h: 'h-96', img: '/images/gems/blue-sapphire.png' },
+                { name: 'Padparadscha', origin: 'Sri Lanka', grade: 'Collector', h: 'h-64', img: '/images/gems/padparadscha.png' },
+                { name: 'Yellow Sapphire', origin: 'Pelmadulla', grade: 'AA', h: 'h-80', img: '/images/gems/yellow-sapphire.png' },
+                { name: 'Ruby', origin: 'Madagascar', grade: 'AAA', h: 'h-72', img: '/images/gems/ruby.png' },
+                { name: 'Star Sapphire', origin: 'Ratnapura', grade: 'Rare', h: 'h-96', img: '/images/gems/star-sapphire.png' },
+                { name: 'Tsavorite', origin: 'Tanzania', grade: 'AA', h: 'h-64', img: '/images/gems/tsavorite.png' },
               ].map((gem, idx) => (
-                <div key={idx} className={`relative rounded-xl overflow-hidden shadow-lg group bg-brand-navy ${gem.h} break-inside-avoid`}>
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-transparent to-transparent z-10" />
-                  <div className="absolute bottom-0 left-0 p-6 z-20 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                <div key={idx} className={`relative rounded-xl overflow-hidden shadow-lg group bg-slate-900 ${gem.h} break-inside-avoid`}>
+                  {/* Background Image */}
+                  <img 
+                    src={gem.img} 
+                    alt={gem.name} 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  {/* Clean Dark Gradient Overlay (No Blue Layer) */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent z-10" />
+                  <div className="absolute bottom-0 left-0 p-6 z-20 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                     <div className="flex justify-between items-end">
                       <div>
                         <h3 className="text-white font-serif font-bold text-xl mb-1">{gem.name}</h3>

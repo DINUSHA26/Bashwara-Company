@@ -146,7 +146,7 @@ export function HeroSection() {
       </motion.div>
 
       {/* Hero Content */}
-      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
+      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center pt-24 lg:pt-28 pb-16 lg:pb-24">
         <div className="max-w-5xl mx-auto flex flex-col items-center">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
@@ -157,7 +157,7 @@ export function HeroSection() {
             Since 2008
           </motion.span>
           
-          <div className="relative w-full min-h-[220px] md:min-h-[240px] flex items-center justify-center mb-6">
+          <div className="relative w-full h-[192px] sm:h-[200px] md:h-[256px] mb-3 flex items-start justify-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
@@ -165,13 +165,17 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.6, ease: 'easeInOut' }}
-                className="absolute inset-x-0 mx-auto"
+                className="w-full flex flex-col items-center"
               >
-                <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 leading-tight max-w-5xl mx-auto">
-                  {SLIDES[activeIndex].heading}
+                <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-[1.15] max-w-5xl mx-auto h-[88px] sm:h-[112px] md:h-[168px] flex items-start justify-center mb-2 sm:mb-4">
+                  <span className="block w-full text-center">
+                    {SLIDES[activeIndex].heading}
+                  </span>
                 </h1>
-                <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto font-light leading-relaxed">
-                  {SLIDES[activeIndex].description}
+                <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto font-light leading-relaxed h-[96px] sm:h-[72px] md:h-[72px] flex items-start justify-center">
+                  <span className="block w-full text-center">
+                    {SLIDES[activeIndex].description}
+                  </span>
                 </p>
               </motion.div>
             </AnimatePresence>
@@ -181,7 +185,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2"
           >
             <button 
               onClick={scrollToSectors}

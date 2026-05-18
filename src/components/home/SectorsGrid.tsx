@@ -11,9 +11,9 @@ const SECTORS = [
   { id: 'gem-jewellery', name: 'Gem & Jewellery', desc: 'Ethical mining and global export of premium Sri Lankan sapphires.', image: 'https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?q=80&w=1600&auto=format&fit=crop' },
   { id: 'spare-parts', name: 'Vehicle Spare Parts', desc: 'Comprehensive auto components distribution network.', image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=1600&auto=format&fit=crop' },
   { id: 'motors-parts', name: 'Motors & Parts', desc: 'Heavy industrial electric motors and manufacturing systems.', image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop' },
-  { id: 'plastics', name: 'Plastic Manufacturing', desc: 'High-capacity polymer injection and molding operations.', image: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?q=80&w=1600&auto=format&fit=crop' },
+  { id: 'plastics', name: 'Plastic Manufacturing', desc: 'High-capacity polymer injection and molding operations.', image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1600&auto=format&fit=crop' },
   { id: 'spices', name: 'Spicy & Food Export', desc: 'Organic farming and global distribution of Ceylon spices.', image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1600&auto=format&fit=crop' },
-  { id: 'china-agency', name: 'China Import Agency', desc: 'Streamlined sourcing, QC, and logistics handling.', image: 'https://images.unsplash.com/photo-1584285499268-2041d8e12189?q=80&w=1600&auto=format&fit=crop' },
+  { id: 'china-agency', name: 'China Import Agency', desc: 'Streamlined sourcing, QC, and logistics handling.', image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1600&auto=format&fit=crop' },
 ];
 
 export function SectorsGrid() {

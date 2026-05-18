@@ -40,6 +40,22 @@ export function Header() {
 
   const isHomepage = pathname === '/';
 
+  // List of primary pages that have full-screen dark-overlay hero backgrounds
+  const pathsWithHero = [
+    '/',
+    '/about',
+    '/sectors',
+    '/investor-relations',
+    '/esg',
+    '/careers',
+    '/news',
+    '/contact'
+  ];
+
+  // Also check dynamic sector pages: /sectors/[sector]
+  const isSectorDetail = pathname.startsWith('/sectors/') && pathname.split('/').length === 3;
+  const hasHero = pathsWithHero.includes(pathname) || isSectorDetail;
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -48,11 +64,18 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close dropdowns immediately when the page route changes
+  useEffect(() => {
+    setActiveMenu(null);
+    setIsMobileOpen(false);
+  }, [pathname]);
+
   return (
     <>
       <header
+        onMouseLeave={() => setActiveMenu(null)}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          isScrolled || activeMenu || isMobileOpen || !isHomepage
+          isScrolled || activeMenu || isMobileOpen || !hasHero
             ? 'bg-brand-navy/95 backdrop-blur-md border-b border-white/10 py-3 shadow-lg'
             : 'bg-transparent py-5'
         }`}
@@ -84,6 +107,7 @@ export function Header() {
                 >
                   <Link
                     href={link.href}
+                    onClick={() => setActiveMenu(null)}
                     className="text-white/90 hover:text-white text-sm font-medium tracking-wide flex items-center gap-1 py-2"
                   >
                     {link.name}
@@ -115,6 +139,7 @@ export function Header() {
                 >
                   <Link
                     href={link.href}
+                    onClick={() => setActiveMenu(null)}
                     className="text-white/90 hover:text-white text-sm font-medium tracking-wide flex items-center gap-1 py-2"
                   >
                     {link.name}
@@ -140,7 +165,7 @@ export function Header() {
         </div>
 
         {/* Desktop Mega Menu Overlay */}
-        <div className="hidden lg:block" onMouseLeave={() => setActiveMenu(null)}>
+        <div className="hidden lg:block">
           <MegaMenu 
             isOpen={activeMenu === 'sectors'} 
             onMouseLeave={() => setActiveMenu(null)} 
