@@ -3,6 +3,10 @@ import { notFound } from 'next/navigation';
 import { SectorHero } from '@/components/sectors/SectorHero';
 import { GemsContent } from '@/components/sectors/gems/GemsContent';
 import { SparePartsContent } from '@/components/sectors/spare-parts/SparePartsContent';
+import { MotorsPartsContent } from '@/components/sectors/motors-parts/MotorsPartsContent';
+import { PlasticsContent } from '@/components/sectors/plastics/PlasticsContent';
+import { SpicesContent } from '@/components/sectors/spices/SpicesContent';
+import { ChinaAgencyContent } from '@/components/sectors/china-agency/ChinaAgencyContent';
 
 const SECTOR_DATA: Record<string, any> = {
   'gem-jewellery': {
@@ -72,12 +76,16 @@ export default async function SectorPage({ params }: { params: Promise<{ sector:
             <GemsContent />
           ) : resolvedParams.sector === 'spare-parts' ? (
             <SparePartsContent />
+          ) : resolvedParams.sector === 'motors-parts' ? (
+            <MotorsPartsContent />
+          ) : resolvedParams.sector === 'plastics' ? (
+            <PlasticsContent />
+          ) : resolvedParams.sector === 'spices' ? (
+            <SpicesContent />
+          ) : resolvedParams.sector === 'china-agency' ? (
+            <ChinaAgencyContent />
           ) : (
-            <div className="flex-1 bg-white p-8 rounded-2xl shadow-sm border border-slate-200 min-h-[600px] flex items-center justify-center">
-              <p className="text-xl text-brand-navy/60 font-medium">
-                {data.title} Content Module Loading...
-              </p>
-            </div>
+            notFound()
           )}
         </div>
       </section>

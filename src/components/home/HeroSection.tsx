@@ -99,6 +99,7 @@ export function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const activePairIndex = Math.floor(activeIndex / 2);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const resetTimer = useCallback(() => {
@@ -199,9 +200,10 @@ export function HeroSection() {
       </div>
 
       {/* Bottom Interactive Ticker Bar */}
-      <div className="absolute bottom-0 left-0 w-full bg-brand-navy/70 backdrop-blur-md border-t border-white/10 py-3.5 md:py-5 z-20">
+      <div className="absolute bottom-0 left-0 w-full bg-brand-navy/70 backdrop-blur-md border-t border-white/10 py-3 md:py-5 z-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:flex lg:justify-center items-center gap-3 md:gap-6 lg:gap-8 xl:gap-14 text-sm font-medium uppercase tracking-widest">
+          {/* Desktop/Tablet View (Visible on md and up) */}
+          <div className="hidden md:grid md:grid-cols-3 lg:flex lg:justify-center items-center gap-3 md:gap-6 lg:gap-8 xl:gap-14 text-sm font-medium uppercase tracking-widest">
             {SLIDES.map((slide, index) => {
               const isActive = activeIndex === index;
               return (
@@ -238,6 +240,62 @@ export function HeroSection() {
                 </button>
               );
             })}
+          </div>
+
+          {/* Mobile View (Visible on screens below md) */}
+          <div className="md:hidden flex flex-col items-center justify-center w-full min-h-[56px]">
+            <div className="relative w-full overflow-hidden flex justify-center items-center h-8">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activePairIndex}
+                  initial={{ opacity: 0, x: 15 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -15 }}
+                  transition={{ duration: 0.35, ease: 'easeInOut' }}
+                  className="flex justify-center items-center gap-6 text-sm font-medium uppercase tracking-wider"
+                >
+                  {SLIDES.slice(activePairIndex * 2, activePairIndex * 2 + 2).map((slide, idx) => {
+                    const globalIndex = activePairIndex * 2 + idx;
+                    const isActive = activeIndex === globalIndex;
+                    return (
+                      <button
+                        key={slide.id}
+                        onClick={() => handleTabClick(globalIndex)}
+                        className={`relative py-1.5 px-2 flex items-center gap-2 transition-all duration-300 outline-none text-left cursor-pointer group rounded ${
+                          isActive ? 'text-white font-semibold' : 'text-white/60 hover:text-white/90'
+                        }`}
+                      >
+                        <span className="relative flex h-2 w-2 items-center justify-center">
+                          {isActive ? (
+                            <>
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold"></span>
+                            </>
+                          ) : (
+                            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-white/40 group-hover:bg-white/75 transition-colors"></span>
+                          )}
+                        </span>
+                        <span className="text-[11px] sm:text-xs tracking-wider whitespace-nowrap">{slide.title}</span>
+                      </button>
+                    );
+                  })}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+            
+            {/* Slide Page Indicator Dots */}
+            <div className="flex justify-center items-center gap-2 mt-1.5">
+              {[0, 1, 2].map((pairIdx) => (
+                <button
+                  key={pairIdx}
+                  onClick={() => handleTabClick(pairIdx * 2)}
+                  className={`h-1 rounded-full transition-all duration-350 outline-none cursor-pointer ${
+                    pairIdx === activePairIndex ? 'w-5 bg-gold' : 'w-1.5 bg-white/30 hover:bg-white/50'
+                  }`}
+                  aria-label={`Go to slide pair ${pairIdx + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -57,11 +57,19 @@ export default function ContactPage() {
                 </div>
               </div>
               
-              {/* Google Map Placeholder */}
-              <div className="h-64 bg-slate-200 rounded-2xl overflow-hidden shadow-md border border-slate-300/40 flex items-center justify-center relative group">
-                 <MapPin className="w-10 h-10 text-brand-navy/30 absolute z-10" />
-                 <div className="absolute inset-0 bg-white/20 group-hover:bg-white/0 transition-colors" />
-                 <span className="text-brand-navy/60 font-semibold z-10 mt-16 text-sm">Google Maps Location</span>
+              {/* Google Map Embed */}
+              <div className="h-64 bg-slate-200 rounded-2xl overflow-hidden shadow-md border border-slate-300/40 relative group">
+                <iframe
+                  title="Corporate Office Location"
+                  src="https://maps.google.com/maps?q=6.9699298,79.974283&z=17&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full grayscale hover:grayscale-0 transition-all duration-300"
+                />
               </div>
             </div>
 

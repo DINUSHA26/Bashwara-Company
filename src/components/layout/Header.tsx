@@ -25,9 +25,9 @@ const NAV_LINKS = [
     ]
   },
   { name: 'Our Sectors', href: '/sectors', hasDropdown: true, isSectors: true },
-  { name: 'Investor Relations', href: '/investor-relations', hasDropdown: true },
+  { name: 'Investor Relations', href: '/investor-relations' },
   { name: 'ESG', href: '/esg' },
-  { name: 'Careers', href: '/careers', hasDropdown: true },
+  { name: 'Careers', href: '/careers' },
   { name: 'News & Media', href: '/news' },
   { name: 'Contact Us', href: '/contact' },
 ];
@@ -99,29 +99,40 @@ export function Header() {
             
             {/* Left Nav Links (Home to Investor Relations) */}
             <nav className="flex items-center gap-6 flex-1 justify-end pr-8">
-              {NAV_LINKS.slice(0, 4).map((link) => (
-                <div
-                  key={link.name}
-                  className="relative group"
-                  onMouseEnter={() => link.isSectors ? setActiveMenu('sectors') : link.isAbout ? setActiveMenu('about') : setActiveMenu(null)}
-                >
-                  <Link
-                    href={link.href}
-                    onClick={() => setActiveMenu(null)}
-                    className="text-white/90 hover:text-white text-sm font-medium tracking-wide flex items-center gap-1 py-2"
+              {NAV_LINKS.slice(0, 4).map((link) => {
+                const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href);
+                return (
+                  <div
+                    key={link.name}
+                    className="relative group"
+                    onMouseEnter={() => link.isSectors ? setActiveMenu('sectors') : link.isAbout ? setActiveMenu('about') : setActiveMenu(null)}
                   >
-                    {link.name}
-                    {link.hasDropdown && (
-                      <svg className="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
+                    <Link
+                      href={link.href}
+                      onClick={() => setActiveMenu(null)}
+                      className={`text-sm font-medium tracking-wide flex items-center gap-1 py-2 transition-colors duration-200 ${
+                        isActive ? 'text-white font-semibold' : 'text-white/90 hover:text-white'
+                      }`}
+                    >
+                      {link.name}
+                      {link.hasDropdown && (
+                        <svg className="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      )}
+                    </Link>
+                    {isActive ? (
+                      <motion.div
+                        layoutId="activeHeaderUnderline"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    ) : (
+                      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gold origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                     )}
-                  </Link>
-                  <motion.div
-                    className="absolute bottom-0 left-0 w-full h-[2px] bg-gold origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
-                  />
-                </div>
-              ))}
+                  </div>
+                );
+              })}
             </nav>
 
             {/* Center Logo */}
@@ -131,29 +142,40 @@ export function Header() {
 
             {/* Right Nav Links (ESG to Contact Us + Search) */}
             <nav className="flex items-center gap-6 flex-1 justify-start pl-8">
-              {NAV_LINKS.slice(4).map((link) => (
-                <div
-                  key={link.name}
-                  className="relative group"
-                  onMouseEnter={() => link.isSectors ? setActiveMenu('sectors') : link.isAbout ? setActiveMenu('about') : setActiveMenu(null)}
-                >
-                  <Link
-                    href={link.href}
-                    onClick={() => setActiveMenu(null)}
-                    className="text-white/90 hover:text-white text-sm font-medium tracking-wide flex items-center gap-1 py-2"
+              {NAV_LINKS.slice(4).map((link) => {
+                const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href);
+                return (
+                  <div
+                    key={link.name}
+                    className="relative group"
+                    onMouseEnter={() => link.isSectors ? setActiveMenu('sectors') : link.isAbout ? setActiveMenu('about') : setActiveMenu(null)}
                   >
-                    {link.name}
-                    {link.hasDropdown && (
-                      <svg className="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
+                    <Link
+                      href={link.href}
+                      onClick={() => setActiveMenu(null)}
+                      className={`text-sm font-medium tracking-wide flex items-center gap-1 py-2 transition-colors duration-200 ${
+                        isActive ? 'text-white font-semibold' : 'text-white/90 hover:text-white'
+                      }`}
+                    >
+                      {link.name}
+                      {link.hasDropdown && (
+                        <svg className="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      )}
+                    </Link>
+                    {isActive ? (
+                      <motion.div
+                        layoutId="activeHeaderUnderline"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    ) : (
+                      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gold origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                     )}
-                  </Link>
-                  <motion.div
-                    className="absolute bottom-0 left-0 w-full h-[2px] bg-gold origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
-                  />
-                </div>
-              ))}
+                  </div>
+                );
+              })}
 
               {/* Clean search element */}
               <button className="p-2 hover:text-gold transition-colors text-white ml-2" aria-label="Search">
