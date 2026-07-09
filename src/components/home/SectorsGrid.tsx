@@ -33,7 +33,8 @@ export function SectorsGrid() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {SECTORS.map((sector) => (
-            <motion.div key={sector.id} variants={fadeUp} className="group relative h-96 overflow-hidden rounded-xl bg-brand-navy">
+            <motion.div key={sector.id} variants={fadeUp} className="group relative h-96 overflow-hidden rounded-xl bg-brand-navy cursor-pointer">
+              <Link href={`/sectors/${sector.id}`} className="absolute inset-0 z-10" aria-label={sector.name} />
               <motion.img
                 src={sector.image}
                 alt={sector.name}
@@ -48,12 +49,11 @@ export function SectorsGrid() {
                 <p className="text-white/80 mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
                   {sector.desc}
                 </p>
-                <Link
-                  href={`/sectors/${sector.id}`}
+                <div
                   className="inline-flex items-center gap-2 text-gold font-medium uppercase tracking-wider text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200"
                 >
                   Explore Division <ArrowRight className="w-4 h-4" />
-                </Link>
+                </div>
               </div>
             </motion.div>
           ))}

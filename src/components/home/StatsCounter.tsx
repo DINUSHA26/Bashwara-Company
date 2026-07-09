@@ -46,7 +46,7 @@ export function StatsCounter() {
   return (
     <section className="bg-brand-deep py-16 text-white relative z-20">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center divide-x divide-white/10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
           {STATS.map((stat, idx) => (
             <motion.div
               key={idx}
@@ -54,10 +54,16 @@ export function StatsCounter() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="flex flex-col items-center justify-center p-4"
+              className={`flex flex-col items-center justify-center p-4 ${
+                idx === 0 || idx === 2
+                  ? 'border-r border-white/10'
+                  : idx === 1
+                  ? 'md:border-r md:border-white/10'
+                  : ''
+              }`}
             >
-              <div className="text-4xl md:text-5xl font-bold font-serif text-gold mb-2 flex items-center">
-                {stat.prefix}
+              <div className="text-4xl md:text-5xl font-bold font-serif text-gold mb-2 flex items-center justify-center">
+                {stat.prefix && <span className="mr-2">{stat.prefix.trim()}</span>}
                 <Counter to={stat.value} />
                 {stat.suffix}
               </div>
