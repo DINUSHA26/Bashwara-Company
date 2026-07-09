@@ -7,7 +7,7 @@
     "build": "node node_modules/next/dist/bin/next build",
     "start": "node node_modules/next/dist/bin/next start",
     "lint": "node node_modules/eslint/bin/eslint.js",
-    "postbuild": "node node_modules/next-sitemap/bin/next-sitemap"
+    "postbuild": "node node_modules/next-sitemap/bin/next-sitemap.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
