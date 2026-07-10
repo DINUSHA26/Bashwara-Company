@@ -17,19 +17,19 @@ const PRODUCTS = [
     name: 'Industrial Three-Phase Induction Motor',
     spec: '0.75kW - 375kW | IP55 Protection',
     desc: 'High-performance cast iron motors designed for rugged industrial manufacturing environments.',
-    image: 'https://images.unsplash.com/photo-1616788494707-ec28f08d05a1?q=80&w=600&auto=format&fit=crop',
+    image: '/images/motors-parts/motors_1.png',
   },
   {
     name: 'High-Output Synchronous Generator',
     spec: '10kVA - 2000kVA | Brushless Design',
     desc: 'Reliable backup and continuous power generation systems engineered for hospitals and factories.',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop',
+    image: '/images/motors-parts/motors_2.png',
   },
   {
     name: 'Heavy-Duty Industrial Centrifugal Pump',
     spec: 'Flow rate up to 500m³/h | Cast Iron',
     desc: 'Designed for fluid transport, water supply systems, and intensive industrial processes.',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop',
+    image: '/images/motors-parts/motors_3.png',
   },
 ];
 

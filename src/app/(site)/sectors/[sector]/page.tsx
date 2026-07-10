@@ -11,32 +11,32 @@ import { ChinaAgencyContent } from '@/components/sectors/china-agency/ChinaAgenc
 const SECTOR_DATA: Record<string, any> = {
   'gem-jewellery': {
     title: 'Gem & Jewellery Division',
-    image: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=2000&auto=format&fit=crop',
+    image: '/images/sectors/banners/gem_jewellery.png',
     revalidate: 3600,
   },
   'spare-parts': {
     title: 'Vehicle Spare Parts Division',
-    image: 'https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?q=80&w=2000&auto=format&fit=crop',
+    image: '/images/sectors/banners/spare_parts.png',
     revalidate: 0, // CSR
   },
   'motors-parts': {
     title: 'Motors and Parts',
-    image: 'https://images.unsplash.com/photo-1616788494707-ec28f08d05a1?q=80&w=2000&auto=format&fit=crop',
+    image: '/images/sectors/banners/motors_parts.png',
     revalidate: 7200,
   },
   'plastics': {
     title: 'Plastic Cube Manufacturing',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop',
+    image: '/images/sectors/banners/plastics.png',
     revalidate: 3600,
   },
   'spices': {
     title: 'Spicy & Food Products Export',
-    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2000&auto=format&fit=crop',
+    image: '/images/sectors/banners/spices.png',
     revalidate: 3600,
   },
   'china-agency': {
     title: 'China Import & Export Agency',
-    image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2000&auto=format&fit=crop',
+    image: '/images/sectors/banners/china_agency.png',
     revalidate: 0, // SSR
   }
 };

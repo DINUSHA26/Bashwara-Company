@@ -64,7 +64,7 @@ export default function CareersPage() {
         tag="Join Our Inspired Team"
         title="Build Your Career With Us"
         description="We are always looking for passionate individuals, visionaries, and skilled professionals to join our corporate trajectory across global sectors."
-        image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop"
+        image="/images/banners/careers_banner.png"
         alt="Bashwara Corporate team collaborating in bright modern workspace"
       />
 

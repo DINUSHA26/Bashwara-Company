@@ -49,28 +49,28 @@ export default function AboutPage() {
     {
       title: 'Vision & Mission',
       desc: 'Discover our core purpose, vision for South Asia, and corporate values.',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600&auto=format&fit=crop',
+      image: '/images/about/about_1.png',
       href: '/about/vision-mission',
       action: 'View Purpose'
     },
     {
       title: 'Leadership Profile',
       desc: 'Meet the executive board driving our conglomerate trajectory.',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop',
+      image: '/images/about/about_2.png',
       href: '/about/leadership',
       action: 'Meet Our Directors'
     },
     {
       title: 'Our History',
       desc: 'Explore our milestones and heritage established since 2008.',
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop',
+      image: '/images/about/about_3.png',
       href: '/about/history',
       action: 'Explore Timeline'
     },
     {
       title: 'Our Partners',
       desc: 'Explore our active strategic alliances across China, Japan, and globally.',
-      image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=600&auto=format&fit=crop',
+      image: '/images/about/about_4.png',
       href: '/about/partners',
       action: 'View Alliances'
     }
@@ -84,7 +84,7 @@ export default function AboutPage() {
         tag="Since 2008"
         title="About Bashwara & Company"
         description="A pioneering conglomerate driving sustainable industrial growth, global logistics, and premium manufacturing excellence across six global sectors."
-        image="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1600&auto=format&fit=crop"
+        image="/images/about/about_banner.png"
         alt="Bashwara Corporate Headquarters Lobby"
       />
 
@@ -105,7 +105,7 @@ export default function AboutPage() {
                 <motion.img
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.5 }}
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop"
+                  src="/images/about/about_team.png"
                   alt="Bashwara Corporate Headquarters"
                   className="w-full h-full object-cover"
                 />

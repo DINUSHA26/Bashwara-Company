@@ -16,7 +16,7 @@ export default function InvestorRelationsPage() {
         tag="Investor Relations"
         title="Delivering Consistent Value"
         description="Transparent reporting, robust financial health, and steadfast corporate governance form the bedrock of our commitment to shareholders."
-        image="https://images.unsplash.com/photo-1554774853-aae0a22c8aa4?q=80&w=1600&auto=format&fit=crop"
+        image="/images/banners/investor_relations_banner.png"
         alt="Corporate office room overlooking bright skylines under bright sun"
       />
 

@@ -17,19 +17,19 @@ const PRODUCTS = [
     name: 'Industrial Heavy-Duty Storage Crates',
     spec: 'High-Density Polyethylene (HDPE)',
     desc: 'Robust, stackable plastic crates designed for agricultural produce and industrial parts transit.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop',
+    image: '/images/plastics/plastics_1.png',
   },
   {
     name: 'Reinforced Double-Face Plastic Pallet',
     spec: '1200mm x 1000mm | Anti-Slip Surface',
     desc: 'High load capacity pallets built for automated warehouses and chemical storage racks.',
-    image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=600&auto=format&fit=crop',
+    image: '/images/plastics/plastics_2.png',
   },
   {
     name: 'Custom Precision Injection Molded Cubes',
     spec: 'Polypropylene (PP) | Tolerances < 0.1mm',
     desc: 'Custom-engineered component storage cubes and boxes developed for high-end electronic assembly.',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop',
+    image: '/images/plastics/plastics_3.png',
   },
 ];
 

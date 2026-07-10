@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 
 export default function LeadershipPage() {
   const leaders = [
-    { name: 'Deshamanya Deva Bashwara', role: 'Chairman / Founder', bio: 'With over 25 years of pioneering enterprise experience, guiding the strategic vision of the conglomerate.', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop' },
-    { name: 'Dr. Anura Senanayake', role: 'Chief Executive Officer', bio: 'Leading global expansion projects across gemstone logistics and heavy industrial vehicle parts sectors.', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop' },
-    { name: 'Minoli Wijewardene', role: 'Director - ESG & Corporate Affairs', bio: 'Championing carbon-neutral spice supply chains and sustainable polymer molding operations.', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop' }
+    { name: 'Deshamanya Deva Bashwara', role: 'Chairman / Founder', bio: 'With over 25 years of pioneering enterprise experience, guiding the strategic vision of the conglomerate.', img: '/images/leadership/deva_bashwara.png' },
+    { name: 'Dr. Anura Senanayake', role: 'Chief Executive Officer', bio: 'Leading global expansion projects across gemstone logistics and heavy industrial vehicle parts sectors.', img: '/images/leadership/anura_senanayake.png' },
+    { name: 'Minoli Wijewardene', role: 'Director - ESG & Corporate Affairs', bio: 'Championing carbon-neutral spice supply chains and sustainable polymer molding operations.', img: '/images/leadership/minoli_wijewardene.png' }
   ];
 
   return (
@@ -38,7 +38,7 @@ export default function LeadershipPage() {
         <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-100 mb-16 flex flex-col md:flex-row gap-8 items-center">
           <div className="md:w-1/3">
             <img 
-              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop" 
+              src="/images/leadership/board_meeting.png" 
               alt="Bright light board meeting" 
               className="rounded-2xl object-cover h-48 w-full shadow-sm"
             />

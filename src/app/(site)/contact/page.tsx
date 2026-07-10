@@ -12,7 +12,7 @@ export default function ContactPage() {
         tag="Reach Out"
         title="Contact Us"
         description="Whether you are looking to partner with one of our sectors or have a general corporate inquiry, our team is fully ready to assist you."
-        image="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1600&auto=format&fit=crop"
+        image="/images/banners/contact_banner.png"
         alt="Bashwara Corporate Headquarters Reception & Lounge Area"
       />
 

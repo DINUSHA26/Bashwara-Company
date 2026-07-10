@@ -20,21 +20,21 @@ export function NewsTeaser() {
         title: 'Bashwara Opens State-of-the-Art Spice Processing Facility',
         excerpt: 'Expanding our global reach with a new ISO 22000 certified facility aimed at European markets.',
         publishedAt: new Date().toISOString(),
-        coverImage: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=600&auto=format&fit=crop',
+        coverImage: '/images/news/news_spices.png',
       },
       {
         slug: 'q3-financial-results-2026',
         title: 'Q3 2026: Record Growth in Vehicle Spare Parts Division',
         excerpt: 'The conglomerate reports a 24% YoY growth driven by new manufacturing partnerships.',
         publishedAt: new Date(Date.now() - 86400000 * 5).toISOString(),
-        coverImage: 'https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?q=80&w=600&auto=format&fit=crop',
+        coverImage: '/images/news/news_spare_parts.png',
       },
       {
         slug: 'gem-exhibition-geneva',
         title: 'Showcasing Sri Lankan Sapphires at Geneva Gem Expo',
         excerpt: 'Our luxury gems division takes center stage at the premier European jewelry exhibition.',
         publishedAt: new Date(Date.now() - 86400000 * 12).toISOString(),
-        coverImage: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=600&auto=format&fit=crop',
+        coverImage: '/images/news/news_gems.png',
       }
     ]);
     setLoading(false);

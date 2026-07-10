@@ -16,7 +16,7 @@ export default function NewsPage() {
         tag="Media Center"
         title="News & Updates"
         description="Latest news, press releases, corporate milestones, and media coverage across our global conglomerate operations."
-        image="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1600&auto=format&fit=crop"
+        image="/images/news/news_banner.png"
         alt="Modern conference center presentation room with bright white lights"
       />
 

@@ -52,7 +52,7 @@ export default function VisionMissionPage() {
               </p>
             </div>
             <img 
-              src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1600&auto=format&fit=crop" 
+              src="/images/about/office_workspace.png" 
               alt="Bright Sunlit Corporate Meeting Room" 
               className="w-full h-64 object-cover rounded-xl shadow-inner border border-slate-100"
             />
@@ -73,7 +73,7 @@ export default function VisionMissionPage() {
               </p>
             </div>
             <img 
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop" 
+              src="/images/about/corporate_meeting.png" 
               alt="Team Collaborating in Bright Open Office Space" 
               className="w-full h-64 object-cover rounded-xl shadow-inner border border-slate-100"
             />

@@ -17,19 +17,19 @@ const PRODUCTS = [
     name: 'Alba Grade Ceylon Cinnamon',
     spec: 'Authentic Cinnamomum Verum | AAA Grade',
     desc: 'The highest grade Ceylon Cinnamon quills, carefully hand-scraped and packed with organic certification.',
-    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=600&auto=format&fit=crop',
+    image: '/images/spices/spices_1.png',
   },
   {
     name: 'Green Cardamom (LGB Grade)',
     spec: 'Bulk density > 410g/l | Clean Sorted',
     desc: 'Sourced from the misty hills of Kandy, featuring rich aroma and intense green coloration.',
-    image: 'https://images.unsplash.com/photo-1509356861254-35680f356dfd?q=80&w=600&auto=format&fit=crop',
+    image: '/images/spices/spices_2.png',
   },
   {
     name: 'Black Pepper (550G/L Grade)',
     spec: 'Moisture < 12% | Steam Sterilized',
     desc: 'Premium dried black pepper with high piperine content, graded and processed for international exports.',
-    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=600&auto=format&fit=crop',
+    image: '/images/spices/spices_3.png',
   },
 ];
 

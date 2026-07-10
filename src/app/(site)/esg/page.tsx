@@ -16,7 +16,7 @@ export default function ESGPage() {
         tag="ESG Impact"
         title="Driving Sustainable Impact"
         description="At Bashwara, sustainability isn't an afterthought—it's embedded in our DNA. We measure our success not just in revenue, but in the positive impact we leave on our planet and our communities."
-        image="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1600&auto=format&fit=crop"
+        image="/images/banners/esg_banner.png"
         alt="Sustainable organic agriculture and green solar grids"
       />
 

@@ -39,7 +39,7 @@ export default function HistoryPage() {
         {/* Hero image for history */}
         <div className="rounded-3xl overflow-hidden shadow-sm border border-slate-100 h-96 mb-16 relative">
           <img 
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop" 
+            src="/images/about/history.png" 
             alt="Corporate skyscraper building under clean bright blue sky" 
             className="w-full h-full object-cover"
           />

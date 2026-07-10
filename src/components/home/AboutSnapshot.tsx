@@ -21,7 +21,7 @@ export function AboutSnapshot() {
               <motion.img
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.7 }}
-                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1632&auto=format&fit=crop"
+                src="/images/about/about_snapshot.png"
                 alt="Bashwara Corporate Leadership"
                 className="w-full h-full object-cover"
               />

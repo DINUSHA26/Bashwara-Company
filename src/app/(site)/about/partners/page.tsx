@@ -90,7 +90,7 @@ export default function PartnersPage() {
           </div>
           <div className="md:w-1/2">
             <img 
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1600&auto=format&fit=crop" 
+              src="/images/about/partners.png" 
               alt="Light corporate handshakes and partnerships" 
               className="rounded-2xl object-cover h-64 w-full shadow-sm"
             />

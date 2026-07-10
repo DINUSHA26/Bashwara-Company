@@ -11,42 +11,42 @@ const SECTORS_LIST = [
     slug: 'gem-jewellery',
     name: 'Gem & Jewellery Division',
     icon: Gem,
-    image: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=600&auto=format&fit=crop',
+    image: '/images/sectors/gem_jewellery.png',
     desc: 'Ethical gemstone mining and exquisite Ceylon sapphire trading networks supplying premier international luxury jewelry markets.',
   },
   {
     slug: 'spare-parts',
     name: 'Vehicle Spare Parts Division',
     icon: Settings,
-    image: 'https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?q=80&w=600&auto=format&fit=crop',
+    image: '/images/sectors/spare_parts.png',
     desc: 'Authorized global distributor supplying certified OEM automotive components and custom high-durability spare replacement parts.',
   },
   {
     slug: 'motors-parts',
     name: 'Motors and Parts',
     icon: Factory,
-    image: 'https://images.unsplash.com/photo-1616788494707-ec28f08d05a1?q=80&w=600&auto=format&fit=crop',
+    image: '/images/sectors/motors_parts.png',
     desc: 'Heavy industrial power units, assembly logistics, and massive hydraulic heavy equipment distribution pipelines.',
   },
   {
     slug: 'plastics',
     name: 'Plastic Cube Manufacturing',
     icon: Box,
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop',
+    image: '/images/sectors/plastics.png',
     desc: 'Advanced injection molding, polymer extrusion, and high-precision plastic components supplying international supply chains.',
   },
   {
     slug: 'spices',
     name: 'Spicy & Food Products Export',
     icon: Leaf,
-    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=600&auto=format&fit=crop',
+    image: '/images/sectors/spices.png',
     desc: 'Vibrant organic single-origin Ceylon spices including Grade-A cinnamon, cardamom, and black pepper processing facilities.',
   },
   {
     slug: 'china-agency',
     name: 'China Import & Export Agency',
     icon: Globe,
-    image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=600&auto=format&fit=crop',
+    image: '/images/sectors/china_agency.png',
     desc: 'Customs brokerage, complete freight clearing logistics, and dedicated trading pipelines connecting East Asia and South Asia.',
   }
 ];
@@ -60,7 +60,7 @@ export default function SectorsListingPage() {
         tag="Our Scope"
         title="Conglomerate Sectors"
         description="Spanning six highly specialized and integrated business sectors driving sustainable value creation in South Asia and global markets."
-        image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2000&auto=format&fit=crop"
+        image="/images/banners/sectors_banner.png"
         alt="Diverse industrial conglomerate collage representing all six sectors"
       />
 

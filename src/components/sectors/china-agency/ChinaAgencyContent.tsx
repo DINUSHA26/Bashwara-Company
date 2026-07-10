@@ -17,19 +17,19 @@ const SERVICES = [
     name: 'Guangzhou Sourcing & Supplier Audit',
     spec: 'Guangdong / Zhejiang Industrial Hubs',
     desc: 'Verify factory legitimacy, production capacity, and social compliance before signing purchase orders.',
-    image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=600&auto=format&fit=crop',
+    image: '/images/china-agency/china_1.png',
   },
   {
     name: 'Cargo Consolidation & Warehousing',
     spec: 'Yiwu & Shenzhen Transit Facilities',
     desc: 'Consolidate multiple vendor shipments into full containers (FCL) to optimize ocean freight costs.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop',
+    image: '/images/china-agency/china_2.png',
   },
   {
     name: 'Sri Lanka Customs Clearing & Delivery',
     spec: 'Colombo Port Clearance | Door-to-Door',
     desc: 'Handle full import documentation, duty tariff clearance, and secure domestic transport to warehouses.',
-    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=600&auto=format&fit=crop',
+    image: '/images/china-agency/china_3.png',
   },
 ];
 
