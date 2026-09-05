@@ -30,21 +30,21 @@ export default function ContactPage() {
                     <MapPin className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                     <div>
                       <strong className="block mb-1">Address</strong>
-                      <span className="text-white/80">No: 400, Deans Road,<br />Colombo 10, Sri Lanka</span>
+                      <span className="text-white/80">644/B Kajuhena Road,<br />Heiyanthuduwa</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <Phone className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                     <div>
                       <strong className="block mb-1">Telephone</strong>
-                      <span className="text-white/80">011 2 627 000</span>
+                      <span className="text-white/80">0729044825</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <Mail className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
                     <div>
                       <strong className="block mb-1">Email</strong>
-                      <span className="text-white/80">info@cau.bashwara.com</span>
+                      <span className="text-white/80">info@bashwaraholdings.com</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">

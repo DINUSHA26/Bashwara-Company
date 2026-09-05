@@ -23,19 +23,19 @@ export function Footer() {
                 <div className="p-2 border border-white/10 rounded-full group-hover:border-gold/50 transition-colors">
                   <MapPin className="w-5 h-5 text-gold" />
                 </div>
-                <span className="text-sm mt-1 leading-relaxed">No 400, Deans Road,<br />Colombo 10, Sri Lanka</span>
+                <span className="text-sm mt-1 leading-relaxed">644/B Kajuhena Road,<br />Heiyanthuduwa</span>
               </a>
-              <a href="tel:+94112627000" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group">
+              <a href="tel:0729044825" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group">
                 <div className="p-2 border border-white/10 rounded-full group-hover:border-gold/50 transition-colors">
                   <Phone className="w-5 h-5 text-gold" />
                 </div>
-                <span className="text-sm">011 2 627 000</span>
+                <span className="text-sm">0729044825</span>
               </a>
-              <a href="mailto:info@cau.bashwara.com" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group">
+              <a href="mailto:info@bashwaraholdings.com" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group">
                 <div className="p-2 border border-white/10 rounded-full group-hover:border-gold/50 transition-colors">
                   <Mail className="w-5 h-5 text-gold" />
                 </div>
-                <span className="text-sm">info@cau.bashwara.com</span>
+                <span className="text-sm">info@bashwaraholdings.com</span>
               </a>
             </div>
           </div>
