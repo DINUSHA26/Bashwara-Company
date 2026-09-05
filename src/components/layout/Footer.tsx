@@ -44,10 +44,15 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-serif font-bold text-gold mb-6">Explore</h3>
             <ul className="space-y-4">
-              {['About Us', 'Our Sectors', 'Investor Relations', 'ESG'].map((item) => (
-                <li key={item}>
-                  <Link href={`/${item.toLowerCase().replace(/\s+/g, '-')}`} className="text-white/80 hover:text-gold text-sm transition-colors">
-                    {item}
+              {[
+                { name: 'About Us', href: '/about' },
+                { name: 'Our Sectors', href: '/sectors' },
+                { name: 'Investor Relations', href: '/investor-relations' },
+                { name: 'ESG', href: '/esg' }
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-white/80 hover:text-gold text-sm transition-colors">
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -58,10 +63,15 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-serif font-bold text-gold mb-6">Information</h3>
             <ul className="space-y-4">
-              {['Careers', 'News & Media', 'FAQ', 'Contact Us'].map((item) => (
-                <li key={item}>
-                  <Link href={`/${item.toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-')}`} className="text-white/80 hover:text-gold text-sm transition-colors">
-                    {item}
+              {[
+                { name: 'Careers', href: '/careers' },
+                { name: 'News & Media', href: '/news' },
+                { name: 'FAQ', href: '/faq' },
+                { name: 'Contact Us', href: '/contact' }
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-white/80 hover:text-gold text-sm transition-colors">
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -98,8 +108,8 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Bashwara & Company (Pvt) Ltd. | All Rights Reserved. Concept & Design by HBSI
           </p>
           <div className="flex items-center gap-6 text-xs text-white/60 flex-wrap justify-center">
-            {['Cookie Policy', 'Privacy Notice', 'Terms & Conditions', 'Sitemap'].map((item) => (
-              <Link key={item} href="#" className="hover:text-gold transition-colors">
+            {['Cookie Policy', 'Privacy Notice', 'Terms & Conditions'].map((item) => (
+              <Link key={item} href={`/${item.toLowerCase().replace(/ & /g, '-and-').replace(/\s+/g, '-')}`} className="hover:text-gold transition-colors">
                 {item}
               </Link>
             ))}
