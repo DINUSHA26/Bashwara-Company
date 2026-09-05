@@ -6,8 +6,8 @@ import { motion, useInView } from 'framer-motion';
 const STATS = [
   { value: 2008, label: 'Established', prefix: 'Since ' },
   { value: 6, label: 'Business Sectors', suffix: '' },
-  { value: 500, label: 'Employees Globally', suffix: '+' },
-  { value: 30, label: 'Countries Reached', suffix: '+' },
+  { value: 50, label: 'Employees Globally', suffix: '+' },
+  { value: 10, label: 'Countries Reached', suffix: '+' },
 ];
 
 function Counter({ from = 0, to, duration = 2 }: { from?: number; to: number; duration?: number }) {
@@ -54,20 +54,22 @@ export function StatsCounter() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className={`flex flex-col items-center justify-center p-4 ${
-                idx === 0 || idx === 2
-                  ? 'border-r border-white/10'
-                  : idx === 1
-                  ? 'md:border-r md:border-white/10'
-                  : ''
+              className={`flex flex-col items-center justify-center py-8 px-2 sm:px-4 ${
+                idx === 0 || idx === 2 ? 'border-r border-white/10' : ''
+              } ${
+                idx === 0 || idx === 1 ? 'border-b border-white/10 md:border-b-0' : ''
+              } ${
+                idx === 1 ? 'md:border-r md:border-white/10' : ''
               }`}
             >
-              <div className="text-4xl md:text-5xl font-bold font-serif text-gold mb-2 flex items-center justify-center">
-                {stat.prefix && <span className="mr-2">{stat.prefix.trim()}</span>}
-                <Counter to={stat.value} />
-                {stat.suffix}
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold font-serif text-gold mb-3 flex flex-col xl:flex-row items-center justify-center gap-1 xl:gap-2 leading-tight text-center">
+                {stat.prefix && <span>{stat.prefix.trim()}</span>}
+                <div className="flex items-center justify-center">
+                  <Counter to={stat.value} />
+                  {stat.suffix}
+                </div>
               </div>
-              <div className="text-sm md:text-base text-white/80 uppercase tracking-widest">
+              <div className="text-[11px] sm:text-xs lg:text-base text-white/80 uppercase tracking-widest text-center mt-1 sm:mt-2 xl:mt-0">
                 {stat.label}
               </div>
             </motion.div>
