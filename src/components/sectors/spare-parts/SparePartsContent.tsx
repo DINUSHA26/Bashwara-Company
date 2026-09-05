@@ -2,112 +2,144 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { SectorAnchorNav } from '@/components/sectors/SectorAnchorNav';
+import { Search, Wrench, ShieldCheck, CheckCircle2, ArrowRight } from 'lucide-react';
 import { fadeUp } from '@/lib/animations';
-
-const NAV_ITEMS = [
-  { id: 'inventory', label: 'Global Inventory' },
-  { id: 'inquiry-matrix', label: 'Interactive Inquiry Matrix' },
-];
 
 const SPARE_PARTS = [
   { 
-    name: 'LED Matrix Headlight Assembly', 
-    category: 'Headlights', 
+    name: 'Front Shock Absorber Strut & Coil Assembly', 
+    fitment: 'Suzuki Wagon R (MH34S/44S), Alto K10, Swift',
+    category: 'Suspension & Steering', 
     cond: 'Brand New', 
-    price: 'High-Tier', 
-    img: '/images/spare-parts/led-headlight.png' 
+    img: '/images/spare-parts/shock-absorber-real.png' 
   },
   { 
-    name: 'Bi-Xenon Adaptive Headlight', 
-    category: 'Headlights', 
+    name: 'Ventilated Brake Disc Rotors & Ceramic Pads Set', 
+    fitment: 'Toyota Land Cruiser Prado 120/150, Hilux Revo, Fortuner',
+    category: 'Braking System', 
+    cond: 'Brand New', 
+    img: '/images/spare-parts/brake-pads-real.png' 
+  },
+  { 
+    name: 'Heavy-Duty 12V 120A Alternator Generator Unit', 
+    fitment: 'Toyota Axio, Premio, Allion, KDH HiAce (1NZ-FE / 2KD)',
+    category: 'Electrical & Lighting', 
+    cond: 'Brand New', 
+    img: '/images/spare-parts/alternator-real.png' 
+  },
+  { 
+    name: '1NZ-FE 1.5L Complete Japanese Engine Block Assembly', 
+    fitment: 'Toyota Corolla Axio, Premio, Allion, Fielder (NZE141 / NZE161)',
+    category: 'Engine & Drivetrain', 
+    cond: 'Reconditioned / Tested', 
+    img: '/images/motors-parts/induction_motor.png' 
+  },
+  { 
+    name: 'CVT Automatic Transmission Gearbox Unit', 
+    fitment: 'Toyota Axio Hybrid, Vitz KSP130, Honda Vezel RU1, Fit GP5',
+    category: 'Engine & Drivetrain', 
     cond: 'Reconditioned', 
-    price: 'Mid-Tier', 
-    img: '/images/spare-parts/xenon-headlight.png' 
+    img: '/images/spare-parts/part_5_gearbox.jpg' 
   },
   { 
-    name: 'Premium Synthetic Oil Filter', 
-    category: 'Oil Filters', 
+    name: 'Commercial Heavy-Duty Clutch Disc & Pressure Plate Kit', 
+    fitment: 'Isuzu Elf NHR/NKR, Mitsubishi Canter FE444, Hilux Vigo',
+    category: 'Engine & Drivetrain', 
     cond: 'Brand New', 
-    price: 'Entry-Tier', 
-    img: '/images/spare-parts/synthetic-oil-filter.png' 
+    img: '/images/spare-parts/part_6_clutch.jpg' 
   },
   { 
-    name: 'Heavy-Duty Spin-On Oil Filter', 
-    category: 'Oil Filters', 
+    name: 'LED Matrix Crystal Projector Headlight Unit Pair', 
+    fitment: 'Toyota Hilux Revo / ROCCO (2018-2024)',
+    category: 'Electrical & Lighting', 
+    cond: 'Brand New Original', 
+    img: '/images/spare-parts/part_7_headlight.jpg' 
+  },
+  { 
+    name: 'High-Performance 4-Piston Hydraulic Brake Caliper Unit', 
+    fitment: 'Honda Vezel RU3, Fit GP5, Grace, Nissan X-Trail T32',
+    category: 'Braking System', 
     cond: 'Brand New', 
-    price: 'Entry-Tier', 
-    img: '/images/spare-parts/heavy-duty-oil-filter.png' 
+    img: '/images/spare-parts/part_11_caliper.jpg' 
   },
   { 
-    name: 'Acoustic Laminated Windshield Glass', 
-    category: 'Glass', 
+    name: 'Adaptive Air Suspension Strut Unit', 
+    fitment: 'Toyota Land Cruiser V8 URJ202, Mitsubishi Montero V98W',
+    category: 'Suspension & Steering', 
     cond: 'Brand New', 
-    price: 'Mid-Tier', 
-    img: '/images/spare-parts/windshield-glass.png' 
+    img: '/images/spare-parts/part_12_strut.jpg' 
   },
   { 
-    name: 'Tempered Side Window Glass', 
-    category: 'Glass', 
-    cond: 'Used', 
-    price: 'Entry-Tier', 
-    img: '/images/spare-parts/side-glass.png' 
-  },
-  { 
-    name: 'V8 Engine Block Assembly', 
-    category: 'Engine', 
-    cond: 'Reconditioned', 
-    price: 'High-Tier', 
-    img: '/images/spare-parts/v8-engine.png' 
-  },
-  { 
-    name: '6-Speed Automatic Transmission', 
-    category: 'Engine', 
-    cond: 'Reconditioned', 
-    price: 'High-Tier', 
-    img: '/images/spare-parts/transmission.png' 
-  },
-  { 
-    name: 'Carbon Fiber High-Torque Clutch Kit', 
-    category: 'Engine', 
+    name: 'Synthetic Engine Oil Filter Element (Cartridge)', 
+    fitment: 'Toyota Premio, Allion, Axio, Prius ZVW30, CH-R, Aqua',
+    category: 'Filters & Maintenance', 
     cond: 'Brand New', 
-    price: 'Mid-Tier', 
-    img: '/images/spare-parts/clutch-kit.png' 
+    img: '/images/spare-parts/part_8_oilfilter.jpg' 
   },
   { 
-    name: 'Adaptive Air Suspension Strut', 
-    category: 'Suspension', 
+    name: 'Heavy-Duty Spin-On Diesel Fuel & Oil Filter Unit', 
+    fitment: 'Isuzu Forward / Elf, Mitsubishi Fuso Canter, Leyland Bus',
+    category: 'Filters & Maintenance', 
     cond: 'Brand New', 
-    price: 'Mid-Tier', 
-    img: '/images/spare-parts/air-strut.png' 
+    img: '/images/spare-parts/filter-real.jpg' 
   },
   { 
-    name: 'Drilled Carbon-Ceramic Brake Rotors', 
-    category: 'Suspension', 
+    name: 'Drilled Slotted Steel Brake Rotors Pair', 
+    fitment: 'Toyota Axio WXB, Premio FEX, Honda Civic FC1, Vezel',
+    category: 'Braking System', 
     cond: 'Brand New', 
-    price: 'High-Tier', 
-    img: '/images/spare-parts/brake-rotors.png' 
+    img: '/images/spare-parts/part_9_wheel.jpg' 
   },
   { 
-    name: '6-Piston High-Performance Calipers', 
-    category: 'Suspension', 
+    name: 'Acoustic Laminated Front Windshield Glass Unit', 
+    fitment: 'Toyota HiAce KDH200, Axio NZE161, Honda Vezel RU1',
+    category: 'Body & Glass', 
+    cond: 'Brand New (DOT Certified)', 
+    img: '/images/spare-parts/part_10_glass.jpg' 
+  },
+  { 
+    name: '12V Maintenance-Free Heavy-Duty Automotive Battery', 
+    fitment: 'Universal Fit - Toyota, Honda, Nissan, Suzuki Vehicles',
+    category: 'Electrical & Lighting', 
     cond: 'Brand New', 
-    price: 'Mid-Tier', 
-    img: '/images/spare-parts/brake-caliper.png' 
+    img: '/images/spare-parts/battery-real.jpg' 
+  },
+  { 
+    name: 'Performance Coilover Adjustable Suspension Kit', 
+    fitment: 'Honda Civic FC1, Toyota Swift, Axio WXB',
+    category: 'Suspension & Steering', 
+    cond: 'Brand New', 
+    img: '/images/spare-parts/suspension-real.jpg' 
+  },
+  { 
+    name: 'OEM Factory Alloy Wheel Rim & Hub Assembly', 
+    fitment: 'Toyota Land Cruiser Prado, Hilux Revo, Montero V98',
+    category: 'Body & Glass', 
+    cond: 'Brand New', 
+    img: '/images/spare-parts/wheel-rim-real.jpg' 
   }
 ];
 
-const CATEGORIES = ['All', 'Headlights', 'Oil Filters', 'Glass', 'Engine', 'Suspension'];
+const CATEGORIES = [
+  'All', 
+  'Engine & Drivetrain', 
+  'Braking System', 
+  'Suspension & Steering', 
+  'Electrical & Lighting', 
+  'Filters & Maintenance', 
+  'Body & Glass'
+];
 
 export function SparePartsContent() {
   const [filter, setFilter] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
   
   // Inquiry Form state
   const [formData, setFormData] = useState({
     manufacturer: '',
     model: '',
     year: '',
-    category: 'Engine',
+    category: 'Engine & Drivetrain',
     partDescription: '',
     senderName: '',
     senderEmail: '',
@@ -118,9 +150,14 @@ export function SparePartsContent() {
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const filteredParts = filter === 'All' 
-    ? SPARE_PARTS 
-    : SPARE_PARTS.filter(part => part.category === filter);
+  const filteredParts = SPARE_PARTS.filter(part => {
+    const matchesCategory = filter === 'All' || part.category === filter;
+    const matchesSearch = searchQuery === '' || 
+      part.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      part.fitment.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      part.category.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -156,7 +193,7 @@ export function SparePartsContent() {
           manufacturer: '',
           model: '',
           year: '',
-          category: 'Engine',
+          category: 'Engine & Drivetrain',
           partDescription: '',
           senderName: '',
           senderEmail: '',
@@ -173,82 +210,105 @@ export function SparePartsContent() {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-12 relative w-full">
-      <SectorAnchorNav items={NAV_ITEMS} />
-
-      <div className="flex-1 space-y-24">
-        
-        {/* Section 1: Inventory */}
-        <section id="inventory" className="scroll-mt-32">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <span className="text-brand-steel font-bold tracking-widest uppercase mb-2 block text-sm">Catalog</span>
-            <h2 className="text-4xl font-serif font-bold text-brand-navy mb-8">Heavy & Light Vehicle Components</h2>
-            
-            {/* Category Filter Tab Bar */}
-            <div className="flex flex-wrap gap-3 mb-8">
-              {CATEGORIES.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setFilter(cat)}
-                  className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                    filter === cat 
-                      ? 'bg-brand-ocean text-white shadow-md shadow-brand-ocean/20' 
-                      : 'bg-white border border-slate-200 text-brand-navy hover:bg-brand-navy/5'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
+    <div className="w-full space-y-16 text-brand-navy">
+      
+      {/* Section 1: Inventory */}
+      <section id="inventory" className="scroll-mt-32">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+          
+          {/* Header & Search Bar */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+            <div>
+              <span className="text-gold-dark font-bold tracking-widest uppercase mb-2 block text-xs">Sri Lanka Market Inventory</span>
+              <h2 className="text-3xl lg:text-4xl font-serif font-bold text-brand-navy">Genuine & Japanese Vehicle Spare Parts</h2>
+              <p className="text-slate-600 text-sm mt-2 max-w-xl">
+                Comprehensive inventory of genuine OEM and high-tier reconditioned spare parts tailored for Toyota, Honda, Suzuki, Nissan, Mitsubishi & Isuzu vehicles in Sri Lanka.
+              </p>
             </div>
 
-            {/* Grid Catalog with Local Assets */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <AnimatePresence mode="popLayout">
-                {filteredParts.map((part, idx) => (
-                  <motion.div 
-                    layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.3 }}
-                    key={part.name} 
-                    className="bg-white rounded-2xl border border-slate-100 shadow-sm flex flex-col overflow-hidden hover:shadow-lg transition-all duration-300 group"
-                  >
-                    {/* Quality Local Image */}
-                    <div className="h-48 overflow-hidden relative bg-slate-50 border-b border-slate-100">
+            {/* Search Input */}
+            <div className="relative w-full lg:w-80">
+              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <input 
+                type="text" 
+                placeholder="Search by part or model (e.g. Wagon R, Axio)..." 
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-4 py-2.5 rounded-full border border-slate-200 text-xs font-medium focus:outline-none focus:border-brand-ocean bg-white shadow-sm"
+              />
+            </div>
+          </div>
+          
+          {/* Category Filter Tab Bar */}
+          <div className="flex flex-wrap gap-2.5 mb-8">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setFilter(cat)}
+                className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 ${
+                  filter === cat 
+                    ? 'bg-brand-navy text-white shadow-md' 
+                    : 'bg-white border border-slate-200 text-brand-navy hover:bg-slate-100'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          {/* Grid Catalog */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <AnimatePresence mode="popLayout">
+              {filteredParts.map((part, idx) => (
+                <motion.div 
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.25 }}
+                  key={part.name + idx} 
+                  className="bg-white rounded-2xl border border-slate-200/80 shadow-md flex flex-col overflow-hidden hover:shadow-xl transition-all duration-300 group justify-between"
+                >
+                  <div>
+                    {/* Actual Spare Part Photo */}
+                    <div className="h-56 overflow-hidden relative bg-slate-900 border-b border-slate-100">
                       <img 
                         src={part.img} 
                         alt={part.name} 
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <span className={`absolute top-4 right-4 text-xs px-2.5 py-1 rounded-full font-bold shadow-sm ${
-                        part.cond === 'Brand New' ? 'bg-emerald-500 text-white' : 
-                        part.cond === 'Reconditioned' ? 'bg-amber-500 text-white' : 
-                        'bg-slate-500 text-white'
-                      }`}>
-                        {part.cond}
-                      </span>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     </div>
 
                     {/* Card Content */}
-                    <div className="p-6 flex flex-col flex-grow">
-                      <span className="text-xs font-bold text-gold uppercase tracking-wider mb-1">{part.category}</span>
-                      <h3 className="font-bold text-lg text-brand-navy mb-4 line-clamp-2 group-hover:text-brand-ocean transition-colors">{part.name}</h3>
-                      
-                      <div className="mt-auto pt-4 border-t border-slate-100 flex justify-between items-center">
-                        <span className="text-sm text-slate-500">Price Range: <strong className="text-brand-navy font-bold">{part.price}</strong></span>
-                        <button className="text-brand-ocean text-sm font-bold hover:text-brand-navy transition-colors flex items-center gap-1 group/btn">
-                          Request Price
-                          <span className="transform group-hover/btn:translate-x-1 transition-transform">→</span>
-                        </button>
+                    <div className="p-6 flex flex-col">
+                      <div className="flex items-center gap-1.5 text-gold-dark text-xs font-bold uppercase tracking-wider mb-2">
+                        <Wrench className="w-3.5 h-3.5" />
+                        <span>{part.category}</span>
+                      </div>
+                      <h3 className="font-bold text-lg text-brand-navy mb-2 leading-snug group-hover:text-brand-ocean transition-colors">{part.name}</h3>
+                      <div className="bg-slate-50 border border-slate-100 rounded-lg p-2.5 mb-4 text-xs">
+                        <span className="text-slate-500 font-medium block">Sri Lanka Vehicle Fitment:</span>
+                        <span className="font-bold text-brand-navy">{part.fitment}</span>
                       </div>
                     </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </div>
-          </motion.div>
-        </section>
+                  </div>
+
+                  <div className="px-6 pb-6 pt-2 border-t border-slate-100 flex justify-between items-center text-xs font-bold">
+                    <span className="text-slate-500 flex items-center gap-1">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>OEM Certified Part</span>
+                    </span>
+                    <a href="#inquiry-matrix" className="text-gold-dark hover:underline flex items-center gap-1 font-bold">
+                      Inquire <ArrowRight className="w-3 h-3" />
+                    </a>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+        </motion.div>
+      </section>
 
         {/* Section 2: Inquiry Matrix */}
         <section id="inquiry-matrix" className="scroll-mt-32">
@@ -408,7 +468,6 @@ export function SparePartsContent() {
           </motion.div>
         </section>
 
-      </div>
     </div>
   );
 }

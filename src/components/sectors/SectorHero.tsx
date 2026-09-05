@@ -12,8 +12,7 @@ interface SectorHeroProps {
 }
 
 export function SectorHero({ title, image, breadcrumb }: SectorHeroProps) {
-  // If the image doesn't start with http, use a generic industrial unsplash fallback
-  const imgSrc = image.startsWith('http') ? image : '/images/banners/default_hero.png';
+  const imgSrc = image || '/images/banners/default_hero.png';
   
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-brand-navy">

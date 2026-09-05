@@ -11,7 +11,7 @@ import { ChinaAgencyContent } from '@/components/sectors/china-agency/ChinaAgenc
 const SECTOR_DATA: Record<string, any> = {
   'gem-jewellery': {
     title: 'Gem & Jewellery Division',
-    image: '/images/sectors/banners/gem_jewellery.png',
+    image: '/images/gems/gem-collection.jpg',
     revalidate: 3600,
   },
   'spare-parts': {
